@@ -1,0 +1,21 @@
+Type: "AWS::DynamoDB::Table"
+Properties:
+  AttributeDefinitions:
+    - AttributeDefinition
+  GlobalSecondaryIndexes:
+    - GlobalSecondaryIndexes
+  KeySchema:
+    - KeySchema
+  LocalSecondaryIndexes:
+    - LocalSecondaryIndexes
+  ProvisionedThroughput:
+    ProvisionedThroughput
+  SSESpecification:
+    SSESpecification
+  StreamSpecification:
+    StreamSpecification
+  TableName: String
+  Tags:
+    - Resource Tag
+  TimeToLiveSpecification:
+    TimeToLiveSpecification
