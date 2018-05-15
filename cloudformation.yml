@@ -1,21 +1,18 @@
-Type: "AWS::DynamoDB::Table"
-Properties:
-  AttributeDefinitions:
-    - AttributeDefinition
-  GlobalSecondaryIndexes:
-    - GlobalSecondaryIndexes
-  KeySchema:
-    - KeySchema
-  LocalSecondaryIndexes:
-    - LocalSecondaryIndexes
-  ProvisionedThroughput:
-    ProvisionedThroughput
-  SSESpecification:
-    SSESpecification
-  StreamSpecification:
-    StreamSpecification
-  TableName: String
-  Tags:
-    - Resource Tag
-  TimeToLiveSpecification:
-    TimeToLiveSpecification
+Resources:
+  DynamoDB:
+    Type: AWS::DynamoDB::Table # type goes here
+    Properties:
+    # props go here
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+    # look for every one that is required
+      AttributeDefinitions:
+        - AttributeName:  Foo
+          AttributeType:  S
+        - AttributeName:  Bar
+          AttributeType:  N
+      KeySchema:
+        - AttributeName: Foo # has to be one of the above
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
