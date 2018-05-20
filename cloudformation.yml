@@ -8,11 +8,16 @@ Resources:
       AttributeDefinitions:
         - AttributeName:  Foo
           AttributeType:  S
-        - AttributeName:  Bar
-          AttributeType:  N
       KeySchema:
         - AttributeName: Foo # has to be one of the above
           KeyType: HASH
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
+  Lambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code: exports.test = function(){ console.log('testing lambda...')};
+      Handler: index.test
+      Role:
+      Runtime: nodejs6.10
