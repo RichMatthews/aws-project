@@ -1,5 +1,9 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Transform: 'AWS::Serverless-2016-10-31'
+
 Resources:
-  DynamoDB:
+  CreateDynamoDBTable:
     Type: AWS::DynamoDB::Table # type goes here
     Properties:
     # props go here
@@ -14,10 +18,9 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
-  Lambda:
-    Type: AWS::Lambda::Function
+  AddToDynamoFunction:
+    Type: AWS::Serverless::Function # created me a lambda
     Properties:
-      Code: exports.test = function(){ console.log('testing lambda...')};
       Handler: index.test
-      Role:
       Runtime: nodejs6.10
+      CodeUri: .

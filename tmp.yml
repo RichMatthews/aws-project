@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  AddToDynamoFunction:
+    Properties:
+      CodeUri: s3://dynamo-db-bucket/9e0ec514733ce74fdce68092756852d5
+      Handler: index.test
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+  CreateDynamoDBTable:
+    Properties:
+      AttributeDefinitions:
+      - AttributeName: Foo
+        AttributeType: S
+      KeySchema:
+      - AttributeName: Foo
+        KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+    Type: AWS::DynamoDB::Table
+Transform: AWS::Serverless-2016-10-31

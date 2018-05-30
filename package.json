@@ -1,0 +1,9 @@
+{
+  "name": "aws-project",
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "webpack": "^4.10.1"
+  }
+}
