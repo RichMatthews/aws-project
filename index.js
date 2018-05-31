@@ -1,13 +1,10 @@
-const AWS = require("aws-sdk");
-let ddb = new AWS.DynamoDB({apiVersion: '2012-10-08'});
 exports.myLambda = function(event, context, callback){
-  console.log('testing that lambda works');
-  console.log(event, 'this is the event...');
   var params = {
-    TableName: 'garply-CreateDynamoDBTable-GOWCBPMPOFP5',
+    TableName: 'CustomerTable',
     Item: {
-      'CUSTOMER_ID': {N: '001'},
-      'CUSTOMER_NAME': {S: 'RICHARD M'},
+      'CUSTOMER_ID': {S: event.id},
+      'CUSTOMER_NAME': {S: event.name},
+      'CUSTOMER_EMAIL': {S: event.email},
     }
   }
   ddb.putItem(params, function(err, data) {

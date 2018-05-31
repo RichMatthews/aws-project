@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   AddToDynamoFunction:
     Properties:
-      CodeUri: s3://dynamo-db-bucket/1bca043d7e13f0a314f66688a03f3a88
+      CodeUri: s3://dynamo-db-bucket/c4c59dc6cd61bbd3dadeb582cbc2438e
       Handler: index.myLambda
       Runtime: nodejs6.10
     Type: AWS::Serverless::Function
@@ -10,12 +10,13 @@ Resources:
     Properties:
       AttributeDefinitions:
       - AttributeName: CUSTOMER_ID
-        AttributeType: N
+        AttributeType: S
       KeySchema:
       - AttributeName: CUSTOMER_ID
         KeyType: HASH
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
+      TableName: CustomerTable
     Type: AWS::DynamoDB::Table
 Transform: AWS::Serverless-2016-10-31

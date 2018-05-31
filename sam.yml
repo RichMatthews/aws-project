@@ -11,10 +11,11 @@ Resources:
     # look for every one that is required
       AttributeDefinitions:
         - AttributeName:  CUSTOMER_ID
-          AttributeType:  N
+          AttributeType:  S
       KeySchema:
         - AttributeName: CUSTOMER_ID # has to be one of the above
           KeyType: HASH
+      TableName: CustomerTable
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
