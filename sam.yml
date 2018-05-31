@@ -10,10 +10,10 @@ Resources:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
     # look for every one that is required
       AttributeDefinitions:
-        - AttributeName:  Foo
-          AttributeType:  S
+        - AttributeName:  CUSTOMER_ID
+          AttributeType:  N
       KeySchema:
-        - AttributeName: Foo # has to be one of the above
+        - AttributeName: CUSTOMER_ID # has to be one of the above
           KeyType: HASH
       ProvisionedThroughput:
         ReadCapacityUnits: 1
@@ -21,6 +21,6 @@ Resources:
   AddToDynamoFunction:
     Type: AWS::Serverless::Function # created me a lambda
     Properties:
-      Handler: index.test
+      Handler: index.myLambda
       Runtime: nodejs6.10
       CodeUri: .
